@@ -262,26 +262,43 @@ body {
   border-radius: 8px;
 }
 .flex-diagram-section .diagram-img-model {
-  width: 256px;
-  height: 180px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 8px;
 }
 
 .flex-diagram-section .diagram-video {
   width: 208px;
+  height: 64px;
+  object-fit: cover;
+}
+
+.flex-diagram-section .diagram-video-4d {
+  width: 208px;
   height: 128px;
   object-fit: cover;
-  border-radius: 8px;
 }
 
 .flex-videos-section .diagram-img, 
 .flex-videos-section .diagram-video {
   width: 256px;
-  height: 256px;
+  height: 1536px;
   object-fit: cover;
-  border-radius: 8px;
-  background: #ddd;
+}
+
+.flexbox-video {
+  width: 256px;
+  height: 1534px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+video, .diagram-video, .diagram-video-4d, .flexbox-video {
+  clip-path: none !important;
+  shape-outside: none !important;
+  transform: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
 }
 
 

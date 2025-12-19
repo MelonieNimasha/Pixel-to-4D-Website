@@ -52,46 +52,27 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Pixel-Motion: Image-to-4D Prediction for Camera-Controlled Video Synthesis</h1>
+            <h1 class="title is-1 publication-title">Pixel-to-4D: Camera-Controlled Image-to-Video Generation with Dynamic 3D Gaussians</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://www.gla.ac.uk/pgrs/meloniedealmeida/" target="_blank">Melonie de Almeida</a><sup></sup>,</span>
+                <a target="_blank">Melonie de Almeida</a><sup></sup>,</span>
                 <span class="author-block">
-                  <a href="https://daniela997.github.io/" target="_blank">Daniela Ivanova</a><sup></sup>,</span>
+                  <a target="_blank">Daniela Ivanova</a><sup></sup>,</span>
                   <span class="author-block">
-                    <a href="https://www.gla.ac.uk/schools/computing/staff/johnwilliamson/" target="_blank">John H. Williamson</a><sup></sup>,</span>
+                    <a target="_blank">Tong Shi</a><sup></sup>,</span>
                     <span class="author-block">
-                      <a href="https://www.pmh47.net/" target="_blank">Paul Henderson</a>
+                      <a target="_blank">John H. Williamson</a><sup></sup>,</span>
+                      <span class="author-block">
+                        <a target="_blank">Paul Henderson</a>
                   </span>
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">University of Glasgow<br>Under Review for ICCV 2025</span>
+                    <span class="author-block">University of Glasgow<br></span>
                   </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- Arxiv PDF link -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-
-                <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
+                  
                 </a>
               </span>
             </div>
@@ -106,17 +87,17 @@
   <div class="flex-diagram">
     <div class="diagram-box">
       <div class="diagram-label">Input Image</div>
-      <img src="static/images/2011_09_26_0084_0000000320.png" alt="Input Image" class="diagram-img"/>
+      <img src="static/images/input.png" alt="Input Image" class="diagram-img"/>
     </div>
     <div class="diagram-arrow">&#8594;</div>
     <div class="diagram-box">
-      <div class="diagram-label">image-to-4D Autoencoder</div>
-      <img src="static/images/my_model.jpg" alt="Model Diagram" class="diagram-img-model"/>
+      <div class="diagram-label">Pixel-to-4D</div>
+      <img src="static/images/my_model.png" alt="Model Diagram" class="diagram-img-model"/>
     </div>
     <div class="diagram-arrow">&#8594;</div>
     <div class="diagram-box">
       <div class="diagram-label">4D Representation</div>
-      <video class="diagram-video-4d" src="static/videos/video_84_320.mp4" controls muted></video>
+      <video class="diagram-video-4d" src="static/videos/output.mp4" autoplay loop muted></video>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center;">
       <div class="arrow-label" style="font-size:0.72em; margin-bottom:2px;">camera trajectory</div>
@@ -124,79 +105,69 @@
     </div>
     <div class="diagram-box">
       <div class="diagram-label">Output Video</div>
-      <video class="diagram-video" src="static/videos/video_84_320.mp4" controls muted="static/images/your_poster.png"></video>
+      <video class="diagram-video" src="static/videos/gen_video.mp4" autoplay loop muted></video>
     </div>
   </div>
 </section>
-
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Humans excel at forecasting the future dynamics of a scene given just a single image. Video prediction models that can mimic this ability are an essential component for intelligent systems. Recent approaches have improved temporal coherence and 3D consistency in single-image-conditioned video prediction. However, these methods often lack robust user controllability, such as modifying the camera path, limiting their applicability in real-world applications. Existing state-of-the-art camera-controlled image-to-video models face challenges in accurately modeling camera motion, ensuring temporal consistency, and preserving geometric integrity. Leveraging explicit intermediate 3D or 4D representations promises to eliminate these limitations, by ensuring the predicted video depicts a coherent scene from a specific camera trajectory. We propose a novel framework that predicts a 4D Gaussian Splat representation from a single image in a single forward pass within seconds, enabling the rendering of videos with camera guidance. Extensive experiments on the KITTI and Waymo datasets demonstrate that our method achieves state-of-the-art video quality and inference efficiency performance.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
 
 <!-- Five Videos Grid Section with Play All Button, 3 Rows, Column and Row Headings, and Custom Gap -->
 <section class="flex-videos-section">
+  <style>
+    /* place dataset labels as a left column, spaced to match the video area */
+    .flex-videos-grid-rowhead { display:flex; align-items:stretch; gap:16px; }
+    .row-headings {
+      width:50px; /* made narrower */
+      display:flex;
+      flex-direction:column;
+      /* each label is a fixed row matching video tile height */
+      align-items:flex-start;
+      padding:8px 6px; /* reduced padding to fit narrower column */
+      box-sizing:border-box;
+    }
+    .row-label {
+      height:192px;
+      display:flex;
+      align-items:center;
+      font-weight:600;
+      text-align:left;
+      padding:0 0 0 6px;
+      box-sizing:border-box;
+    }
+
+    .flex-videos-grid-customgap { flex:1; }
+  </style>
+
   <div class="flex-videos-grid-rowhead">
     <div class="row-headings">
-      <div class="row-label">
-        KITTI Dataset
-        <br>
-        <button class="play-row-btn button is-small is-light" data-row="1" style="margin-top:4px;">Play Row</button>
-      </div>
-      <div class="row-label">
-        Waymo Open Dataset
-        <br>
-        <button class="play-row-btn button is-small is-light" data-row="2" style="margin-top:4px;">Play Row</button>
-      </div>
-      <div class="row-label">
-        Realestate10k Dataset
-        <br>
-        <button class="play-row-btn button is-small is-light" data-row="3" style="margin-top:4px;">Play Row</button>
-      </div>
+      <div class="row-label">KITTI</div>
+      <div class="row-label">KITTI</div>
+      <div class="row-label">Waymo</div>
+      <div class="row-label">Waymo</div>
+      <div class="row-label">RE10K</div>
+      <div class="row-label">RE10K</div>
+      <div class="row-label">DL3DV-10K</div>
+      <div class="row-label">DL3DV-10K</div>
     </div>
+
     <div class="flex-videos-grid-customgap">
       <div class="video-col">
-        <div class="video-label">Ground truth</div>
-        <video class="diagram-video flexbox-video" src="static/videos/video1_row1.mp4" controls muted></video>
-        <video class="diagram-video flexbox-video" src="static/videos/video1_row2.mp4" controls muted></video>
-        <video class="diagram-video flexbox-video" src="static/videos/video1_row3.mp4" controls muted></video>
-      </div>
-      <div class="video-col col-gap">
-        <div class="video-label">Pixel-Motion</div>
-        <video class="diagram-video flexbox-video" src="static/videos/video2_row1.mp4" controls muted></video>
-        <video class="diagram-video flexbox-video" src="static/videos/video2_row2.mp4" controls muted></video>
-        <video class="diagram-video flexbox-video" src="static/videos/video2_row3.mp4" controls muted></video>
-      </div>
-      <div class="video-col">
-        <div class="video-label">camI2V</div>
-        <video class="diagram-video flexbox-video" src="static/videos/video3_row1.mp4" controls muted></video>
-        <video class="diagram-video flexbox-video" src="static/videos/video3_row2.mp4" controls muted></video>
-        <video class="diagram-video flexbox-video" src="static/videos/video3_row3.mp4" controls muted></video>
-      </div>
-      <div class="video-col">
-        <div class="video-label">CameraCtrl</div>
-        <video class="diagram-video flexbox-video" src="static/videos/video4_row1.mp4" controls muted></video>
-        <video class="diagram-video flexbox-video" src="static/videos/video4_row2.mp4" controls muted></video>
-        <video class="diagram-video flexbox-video" src="static/videos/video4_row3.mp4" controls muted></video>
-      </div>
-      <div class="video-col">
-        <div class="video-label"> MotionCtrl</div>
-        <video class="diagram-video flexbox-video" src="static/videos/video5_row1.mp4" controls muted></video>
-        <video class="diagram-video flexbox-video" src="static/videos/video5_row2.mp4" controls muted></video>
-        <video class="diagram-video flexbox-video" src="static/videos/video5_row3.mp4" controls muted></video>
+        <div class="video-label" style="width:1152px; display:flex; margin:0 auto; padding:6px 0;">
+          <span style="width:192px; display:inline-block; text-align:center;">Ground-truth</span>
+          <span style="width:192px; display:inline-block; text-align:center;">MotionCtrl</span>
+          <span style="width:192px; display:inline-block; text-align:center;">CameraCtrl</span>
+          <span style="width:192px; display:inline-block; text-align:center;">CamI2V</span>
+          <span style="width:192px; display:inline-block; text-align:center;">RealCam-I2V</span>
+          <span style="width:192px; display:inline-block; text-align:center;">Ours</span>
+        </div>
+        <!-- video tiles (single merged source used for all columns) -->
+        <video class="diagram-video flexbox-video" src="static/videos/merged_2011_09_26_0084_0000000364.mp4" autoplay loop muted width="1152" height="192" style="width:1152px; height:192px; object-fit:cover;"></video>
+        <video class="diagram-video flexbox-video" src="static/videos/merged_2011_09_26_0084_0000000058.mp4" autoplay loop muted width="1152" height="192" style="width:1152px; height:192px; object-fit:cover;"></video>
+        <video class="diagram-video flexbox-video" src="static/videos/merged_7247823803417339098_2320_000_2340_000_00061.mp4" autoplay loop muted width="1152" height="192" style="width:1152px; height:192px; object-fit:cover;"></video>
+        <video class="diagram-video flexbox-video" src="static/videos/merged_5026942594071056992_3120_000_3140_000_00014.mp4" autoplay loop muted width="1152" height="192" style="width:1152px; height:192px; object-fit:cover;"></video>
+        <video class="diagram-video flexbox-video" src="static/videos/merged_e7b5573a8a349fbd_00006.mp4" autoplay loop muted width="1152" height="192" style="width:1152px; height:192px; object-fit:cover;"></video>
+        <video class="diagram-video flexbox-video" src="static/videos/merged_bcc6b5c21db0dc7d_00002.mp4" autoplay loop muted width="1152" height="192" style="width:1152px; height:192px; object-fit:cover;"></video>
+        <video class="diagram-video flexbox-video" src="static/videos/merged_bba3f4b86b09685b50d83f0453fe11eadfa8d2c6d7066546d6b88dadfaa5851e_frame_00302.mp4" autoplay loop muted width="1152" height="192" style="width:1152px; height:192px; object-fit:cover;"></video>
+        <video class="diagram-video flexbox-video" src="static/videos/merged_e447192a66f038f97cccc8a59c01cbf5cad1d9a3f25242ae5af4a934258d911a_frame_00255.mp4" autoplay loop muted width="1152" height="192" style="width:1152px; height:192px; object-fit:cover;"></video>
       </div>
     </div>
   </div>
@@ -217,23 +188,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-
-
-
-
-
-
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
-
 
   <footer class="footer">
   <div class="container">
