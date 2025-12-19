@@ -108,7 +108,11 @@
       <video class="diagram-video" src="static/videos/gen_video.mp4" autoplay loop muted></video>
     </div>
   </div>
+  <!-- caption common to the diagram row (moved to bottom of page) -->
 </section>
+<div class="diagram-caption" style="max-width:1152px; margin:8px auto 18px; text-align:center; font-size:0.95em; color:#444;">
+    Illustration of the Pixel-to-4D pipeline: A dynamic 4D representation is generated for the input image using our novel architecture that predicts dynamic Gaussian splats. Then the output video is rendered along the given camera trajectory to produce a visually coherent video.
+  </div>
 
 <!-- Five Videos Grid Section with Play All Button, 3 Rows, Column and Row Headings, and Custom Gap -->
 <section class="flex-videos-section">
@@ -135,6 +139,15 @@
     }
 
     .flex-videos-grid-customgap { flex:1; }
+
+    /* caption common to all video tiles */
+    .video-caption {
+      width:1152px;
+      margin:8px auto 14px;
+      text-align:center;
+      font-size:0.95em;
+      color:#444;
+    }
   </style>
 
   <div class="flex-videos-grid-rowhead">
@@ -159,6 +172,7 @@
           <span style="width:192px; display:inline-block; text-align:center;">RealCam-I2V</span>
           <span style="width:192px; display:inline-block; text-align:center;">Ours</span>
         </div>
+
         <!-- video tiles (single merged source used for all columns) -->
         <video class="diagram-video flexbox-video" src="static/videos/merged_2011_09_26_0084_0000000364.mp4" autoplay loop muted width="1152" height="192" style="width:1152px; height:192px; object-fit:cover;"></video>
         <video class="diagram-video flexbox-video" src="static/videos/merged_2011_09_26_0084_0000000058.mp4" autoplay loop muted width="1152" height="192" style="width:1152px; height:192px; object-fit:cover;"></video>
@@ -172,6 +186,7 @@
     </div>
   </div>
 </section>
+        <div class="video-caption">Comparison of our method with baseline methods across four datasets. Our method preserves temporal and 3D consistency while faithfully following the input cameras and details of the input image. Its underlying 4D representation ensures accurate camera motion.</div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   // Play all videos in a specific row
@@ -206,12 +221,5 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 </footer>
-
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
   </body>
   </html>
